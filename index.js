@@ -6,6 +6,7 @@ import { generate } from 'randomstring';
 import mongoose from 'mongoose';
 import Email from './Schema/Schema.js';
 import WaybillDetails from './Schema/Schema2.js';
+import config from './config.js';
 
 const app1 = express();
 const port = 3000;
@@ -18,11 +19,11 @@ app.use(cors());
 app1.use('/check',app)
 
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  // Other supported options...
-};
+// const options = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   // Other supported options...
+// };
 const transporter = createTransport({
   service: 'gmail',
   auth: {
@@ -100,9 +101,11 @@ app.get('/get1',async(req,res)=>{
 // .then(()=>{
 //     console.log("DB connected")
 // })
-mongoose.connect("mongodb+srv://boorgusiddharth:siddharthjuly99@siddharth.fiuilki.mongodb.net/?retryWrites=true&w=majority&appName=Siddharth",options)
+mongoose.connect(config.MONGOOSE_URL)
 .then(()=>{
-    console.log("DB connected")
+  console.log("DB connected")
+// mongoose.connect("mongodb+srv://boorgusiddharth:siddharthjuly99@siddharth.fiuilki.mongodb.net/?retryWrites=true&w=majority&appName=Siddharth")
+
 })
 app1.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
