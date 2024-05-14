@@ -15,6 +15,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app1.use('/check',app)
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true,
+  sslValidate: true,
+  sslCA: [fs.readFileSync('/path/to/ca.pem')],
+  // Other options...
+};
 
 const transporter = createTransport({
   service: 'gmail',
@@ -93,7 +101,7 @@ app.get('/get1',async(req,res)=>{
 // .then(()=>{
 //     console.log("DB connected")
 // })
-mongoose.connect("mongodb+srv://boorgusiddharth:siddharthjuly99@siddharth.fiuilki.mongodb.net/?retryWrites=true&w=majority&appName=Siddharth")
+mongoose.connect("mongodb+srv://boorgusiddharth:siddharthjuly99@siddharth.fiuilki.mongodb.net/?retryWrites=true&w=majority&appName=Siddharth",options)
 .then(()=>{
     console.log("DB connected")
 })
