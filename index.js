@@ -6,6 +6,7 @@ import { generate } from 'randomstring';
 import mongoose from 'mongoose';
 import Email from './Schema/Schema.js';
 import WaybillDetails from './Schema/Schema2.js';
+
 const app1 = express();
 const port = 3000;
 const app=express.Router()
@@ -15,12 +16,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app1.use('/check',app)
+
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   ssl: true,
   sslValidate: true,
-  sslCA: [fs.readFileSync('/path/to/ca.pem')],
+  // sslCA: [fs.readFileSync('/path/to/ca.pem')],
   // Other options...
 };
 
