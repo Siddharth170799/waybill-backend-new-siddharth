@@ -89,11 +89,14 @@ app.get('/get1',async(req,res)=>{
   }
 })
 
-mongoose.connect('mongodb://localhost:27017/wire')
+// mongoose.connect('mongodb://localhost:27017/wire')
+// .then(()=>{
+//     console.log("DB connected")
+// })
+mongoose.connect("mongodb://localhost:27017/wire")
 .then(()=>{
     console.log("DB connected")
 })
-
 app1.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
