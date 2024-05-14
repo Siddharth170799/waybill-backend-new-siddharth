@@ -93,7 +93,7 @@ app.get('/get1',async(req,res)=>{
 // .then(()=>{
 //     console.log("DB connected")
 // })
-mongoose.connect("mongodb://localhost:27017/wire")
+mongoose.connect("mongodb+srv://boorgusiddharth:siddharthjuly99@siddharth.fiuilki.mongodb.net/?retryWrites=true&w=majority&appName=Siddharth")
 .then(()=>{
     console.log("DB connected")
 })
